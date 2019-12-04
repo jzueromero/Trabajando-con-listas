@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XCED04.MainPage">
+
+    <StackLayout BackgroundColor="Black">
+        <!-- Place new controls here -->
+        <Entry x:Name="ENombre" Placeholder="Ingrese nombre"/>
+        <Entry x:Name="EApellido"  Placeholder="Ingrese apellido"/>
+        <Entry x:Name="EEdad" Placeholder="Ingrese edad" Keyboard="Numeric"/>
+        <Entry x:Name="EEspecialidad" Placeholder="Ingrese especialidad"/>
+        <Button Clicked="Button_Clicked" Text="Registrar asistencia" BackgroundColor="Pink" />
+        <BoxView HorizontalOptions="StartAndExpand" HeightRequest="0.5"/>
+        <ListView x:Name="ListViewAlumnos" SeparatorColor="Red">
+            
+            <ListView.Header>
+                <StackLayout BackgroundColor="Yellow">
+                    <Label Text="Lista de alumnos registrados"/>
+                </StackLayout>
+            </ListView.Header>
+            
+            <ListView.Footer>
+                <StackLayout BackgroundColor="Yellow">
+                    <Label Text="Derechos reservados para Xamarin USAID"/>
+                </StackLayout>
+            </ListView.Footer>
+
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                  <TextCell TextColor="White" DetailColor="White"
+                    Text="{Binding Nombre}" 
+                    Detail="{Binding Especialidad}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
